@@ -1,0 +1,45 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+log/
+
+# Build directories
+dist/
+build/
+
+# React / Next.js
+.next/
+out/
+.cache/
+.vite/
+*.tsbuildinfo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Optional: prevent accidental uploads of compiled binaries
+*.exe
+*.out
+*.dll
+
+# XAMPP/LAMP specific (if applicable)
+htdocs/crud/vendor/  # If using PHP dependencies via Composer
+htdocs/crud/storage/ # Laravel or similar temp dirs
+htdocs/crud/public/hot
