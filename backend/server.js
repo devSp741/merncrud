@@ -19,6 +19,9 @@ const dashboardRoute = require('./routes/dashboardRoute');
 app.use('/api/auth', authRoutes);
 app.use('/api', dashboardRoute);
 
+const notFoundMiddleware = require('./middlewares/notFoundMiddleware');
+app.use(notFoundMiddleware);
+
 
 // Global Error Handler
 const errorHandler = require('./middlewares/errorMiddleware');
