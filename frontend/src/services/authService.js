@@ -8,9 +8,9 @@ export const loginUser = async (email, password) => {
   });
 };
 
-export const registerUser = async (email, password) => {
+export const registerUser = async (name, email, password) => {
   return apiClient('/auth/register', {
     method: 'POST',
-    body: { email, password },
+    body: { name, email, password },
   });
 };

@@ -10,6 +10,7 @@ export default function RegisterPage() {
   const { login } = useAuth();
 
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -17,7 +18,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setError('');
     try {
-      const userData = await registerUser(email, password);
+      const userData = await registerUser(name, email, password);
       login(userData); // Save user to context/localStorage
       router.push('/dashboard'); // Redirect after registration
     } catch (err) {
@@ -30,6 +31,16 @@ export default function RegisterPage() {
       <form onSubmit={handleRegister} className="bg-white p-6 rounded shadow-md w-full max-w-md">
         <h2 className="text-xl font-bold mb-4">Register</h2>
         {error && <p className="text-red-500 mb-2">{error}</p>}
+        
+        <input
+          type="text"
+          placeholder="Name"
+          className="w-full border p-2 mb-3"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+
         <input
           type="email"
           placeholder="Email"

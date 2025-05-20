@@ -4,17 +4,19 @@ import { useAuth } from '@/context/AuthContext';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import LogoutButton from '@/components/LogoutButton';
+import Loader from '@/components/Loader';
 
 export default function DashboardPage() {
-  const { user } = useAuth();
+  const { user, loading } = useAuth(); 
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
+    if (!loading && !user) {
       router.push('/login');
     }
-  }, [user]);
+  }, [user, loading]);
 
+  if (loading) return <Loader />;
   if (!user) return null;
 
   return (
